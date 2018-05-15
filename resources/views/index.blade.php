@@ -31,25 +31,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="{{ url("/newevent") }}"> Evento </a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#">Patrocinador</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#">Despesas</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="#">Relatorio</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Caixa</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +51,13 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
+
+
+
             <div class="container-fluid">
+
+              @yield('content')
+
                 <h1>Simple Sidebar</h1>
                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
@@ -68,6 +68,8 @@
 
     </div>
     <!-- /#wrapper -->
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

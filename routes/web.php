@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/newevent', function () {
+    return view('/event');
 });
