@@ -3,22 +3,32 @@
 
 @section('content')
 
-<form>
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <h1>Cadastrar Evento</h1>
+  <form>
+      <div class="form-group">
+          <label class="control-label" for="nome">Nome: *</label>
+          <input id="nome" name="nome" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+          <label class="control-label" for="data">Data: *</label>
+          <input id="data" name="data" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+          <label class="control-label" for="horario">Horario: *</label>
+          <input id="horario" name="horario" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+          <label class="control-label" for="local">Local: *</label>
+          <input id="local" name="local" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+          <label class="control-label" for="descricao">Descrição: *</label>
+          <input id="descricao" name="descricao" class="form-control" autofocus>
+      </div>
+      <a class="btn btn-primary">Salvar Evento</a>
+  </form>
+
+
 
 @endsection
