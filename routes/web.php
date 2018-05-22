@@ -12,9 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('Layout.app');
 });
 
 Route::get('/newevent', function () {
-    return view('/event');
+    return view('evento/event');
 });
+
+Route::get('/newpatrocinador', function () {
+    return view('patrocinador/cadastrar');
+});
+
+Route::resource('patrocinador', 'PatrocinadoresController');

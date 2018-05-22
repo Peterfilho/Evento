@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Gerenciador de Eventos</a>
+    <a class="navbar-brand" href="{{ url("/") }}">Gerenciador de Eventos</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +34,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="{{ url("/newpatrocinador") }}">
             <i class="fa fa-fw fa-plus"></i>
             <span class="nav-link-text">Patrocinador</span>
           </a>
@@ -93,7 +93,7 @@
 
     @yield('content')
 
-
+  </div>
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
@@ -134,7 +134,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.js"></script>
 
-  </div>
+
 </body>
 
 </html>

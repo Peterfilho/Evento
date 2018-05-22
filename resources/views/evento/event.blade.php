@@ -1,5 +1,5 @@
 
-@extends('index')
+@extends('Layout.app')
 
 @section('content')
 
@@ -26,7 +26,7 @@
           <label class="control-label" for="descricao">Descrição: *</label>
           <input id="descricao" name="descricao" class="form-control" autofocus>
       </div>
-      <a class="btn btn-primary">Salvar Evento</a>
+      <a class="btn btn-primary">Cadastrar</a>
   </form>
 
 
