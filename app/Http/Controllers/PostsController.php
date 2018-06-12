@@ -3,27 +3,58 @@
 namespace evento\Http\Controllers;
 
 use Illuminate\Http\Request;
+use evento\Repositories\Posts;
 
-class PatrocinadoresController extends Controller
+class PostsController extends Controller
 {
+    protected $posts;
 
+    // cria uma nova instancia de Evento
+    // e os metodos estão disponiveis para o controlador
+
+    public function __construct(Posts $posts)
+    {
+        $this->posts = $posts;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
+    {
+        $posts = $this->posts->findAll();
+        var_dump($posts);
+        exit;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
 
-
-    public function create()
-    {
-        return view('patrocinador.cadastrar');
-    }
-
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         //

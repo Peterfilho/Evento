@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace evento\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use GuzzleHttp\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('GuzzleHttp\Client', function ()
+        { // instancia o guzzle uma unica vez
+            return new Client([
+                'base_uri' => 'https://jsonplaceholder.typicode.com' // url da api
+            ]);
+        });
     }
 }
