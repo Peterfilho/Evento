@@ -17,3 +17,4 @@ Route::resource('patrocinador', 'PatrocinadoresController');
 // para usar com guzzle - teste
 Route::resource('posts', 'PostsController');
 Route::resource('eventos', 'EventosController');
+Route::resource('patrocinadores', 'PatrocinadoresController');
