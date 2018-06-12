@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('GuzzleHttp\Client', function ()
         { // instancia o guzzle uma unica vez
             return new Client([
-                'base_uri' => 'https://jsonplaceholder.typicode.com' // url da api
+                'base_uri' => 'https://banco-de-dados.herokuapp.com/api/v1/' // url da api
             ]);
         });
     }
