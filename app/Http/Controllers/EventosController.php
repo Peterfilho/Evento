@@ -3,18 +3,19 @@
 namespace evento\Http\Controllers;
 
 use Illuminate\Http\Request;
-use evento\Repositories\Evento;
+use evento\Services\EventoService;
+use evento\Models\Evento;
 
 class EventosController extends Controller
 {
-    protected $evento;
+    protected $eventoService;
 
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(Evento $evento)
+    public function __construct(EventoService $eventoService)
     {
-        $this->evento = $evento;
+        $this->eventoService = $eventoService;
     }
 
     /**
@@ -24,7 +25,7 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $eventos = $this->evento->findAll();
+        $eventos = $this->eventoService->findAll();
 
         return view('Eventos.index', compact($eventos));
     }
@@ -47,7 +48,9 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        $eventos = $this->evento->save($request->all());
+        $evento = new Evento;
+        $evento->fromArray($request->all());
+        return $this->eventoService->save($evento->toArray());
     }
 
     /**
@@ -58,7 +61,7 @@ class EventosController extends Controller
      */
     public function show($id)
     {
-        $eventos = $this->evento->find($id);
+        $eventos = $this->eventoService->find($id);
     }
 
     /**
@@ -69,7 +72,7 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        $eventos = $this->evento->edit($id);
+        $eventos = $this->eventoService->edit($id);
     }
 
     /**
@@ -81,7 +84,11 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $eventos = $this->evento->update($request->all(), $id);
+        $data = $this->eventoService->find($id);
+        $data = array_merge($data, $request->all());
+        $evento = new Evento;
+        $evento->fromArray($data);
+        return $this->eventoService->update($id, $evento->toArray());
     }
 
     /**
@@ -92,6 +99,6 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        $eventos = $this->evento->delete($id);
+        $eventos = $this->eventoService->delete($id);
     }
 }

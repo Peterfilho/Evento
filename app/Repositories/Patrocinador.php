@@ -6,7 +6,7 @@
  * Time: 10:22
  */
 
-namespace app\Repositories;
+namespace evento\Repositories;
 
 use GuzzleHttp\Client;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Repositories;
+namespace evento\Repositories;
 
 use GuzzleHttp\Client;
 
