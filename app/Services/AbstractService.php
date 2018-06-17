@@ -1,9 +1,11 @@
 <?php
 namespace evento\Services;
+
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Exception\ClientException;
+
 abstract class AbstractService
 {
     const DATABASE_API_VERSION = '/api/v1';
@@ -64,15 +66,21 @@ abstract class AbstractService
     public function save(array $entity)
     {
         $body = [RequestOptions::JSON => $entity];
+
         $options = $this->defaultOptions();
+
         $options = array_merge_recursive($options, $body);
+
         try {
+          
             $response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
+
         } catch (ClientException $e) {
             $this->handleGuzzleException($e);
         }
         return $this->parseResponseToJson($response);
     }
+
     public function update(int $id, array $entity)
     {
         $body = [RequestOptions::JSON => $entity];
@@ -95,6 +103,7 @@ abstract class AbstractService
         }
         return $this->parseResponseToJson($response);
     }
+
     public function handleGuzzleException(ClientException $e)
     {
         switch ($e->getCode()) {
@@ -106,6 +115,7 @@ abstract class AbstractService
                 break;
         }
     }
+
     private function parseResponseToJson(Response $response)
     {
         $data = $response->getBody()->getContents();

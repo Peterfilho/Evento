@@ -1,10 +1,10 @@
 <?php
-namespace App\Services;
+namespace evento\Services;
 
 class EventoService extends AbstractService
 {
     public function __construct()
     {
-        parent::__construct("eventos"); // verificar
+        parent::__construct("events"); // verificar
     }
 }

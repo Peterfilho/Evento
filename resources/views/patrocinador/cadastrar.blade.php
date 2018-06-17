@@ -5,21 +5,21 @@
 
 
   <h1>Cadastrar Patrocinador</h1>
-  <form>
+  {!! Form::open(array('route' => 'sponsor.store')) !!}
       <div class="form-group">
-          <label class="control-label" for="nome">Nome: *</label>
-          <input id="nome" name="nome" class="form-control" autofocus>
+          <label class="control-label" for="name">Nome: *</label>
+          <input id="name" name="name" class="form-control" autofocus>
       </div>
       <div class="form-group">
-          <label class="control-label" for="descricao">Descrição: *</label>
-          <input id="descricao" name="descricao" class="form-control" autofocus>
+          <label class="control-label" for="description">Descrição: *</label>
+          <input id="description" name="description" class="form-control" autofocus>
       </div>
       <div class="form-group">
-          <label class="control-label" for="valor">Valor: *</label>
-          <input id="valor" name="valor" class="form-control" autofocus>
+          <label class="control-label" for="value">Valor: *</label>
+          <input id="value" name="value" class="form-control" autofocus>
       </div>
       <button class="btn btn-primary">Cadastrar</a>
-  </form>
+  {!! Form::close() !!}
 
 
 

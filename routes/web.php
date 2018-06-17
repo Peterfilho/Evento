@@ -12,9 +12,9 @@ Route::get('/newpatrocinador', function () {
     return view('patrocinador/cadastrar');
 });
 
-Route::resource('patrocinador', 'PatrocinadoresController');
+//Route::resource('patrocinador', 'PatrocinadoresController');
 
 // para usar com guzzle - teste
 Route::resource('posts', 'PostsController');
-Route::resource('eventos', 'EventosController');
-Route::resource('patrocinadores', 'PatrocinadoresController');
+Route::resource('events', 'EventosController');
+Route::resource('sponsor', 'PatrocinadoresController');

@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace evento\Services;
 
 class MarketingService extends AbstractService
 {
