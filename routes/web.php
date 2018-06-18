@@ -21,3 +21,4 @@ Route::resource('events', 'EventosController');
 Route::resource('sponsor', 'PatrocinadoresController');
 Route::resource('marketings', 'MarketingController');
 Route::resource('/attractions', 'AtracaoController');
+
