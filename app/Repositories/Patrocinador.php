@@ -22,12 +22,12 @@ class Patrocinador extends GuzzleHttpRequest
     }
 
     /*
-      Encontra todos os patrocinadores
+      Encontra todos os patrocinador
     */
     public function findAll()
     {
-        return $this->requestType('GET', 'patrocinadores'); // generico
-        //return $this->get('patrocinadores'); // especifico para get
+        return $this->requestType('GET', 'patrocinador'); // generico
+        //return $this->get('patrocinador'); // especifico para get
     }
 
     /*
@@ -35,8 +35,8 @@ class Patrocinador extends GuzzleHttpRequest
     */
     public function find($id)
     {
-        return $this->requestType('GET', 'patrocinadores');
-        //return $this->get('patrocinadores/{$id}');
+        return $this->requestType('GET', 'patrocinador');
+        //return $this->get('patrocinador/{$id}');
     }
 
     /*
@@ -44,8 +44,8 @@ class Patrocinador extends GuzzleHttpRequest
     */
     public function save($patrocinador)
     {
-        return $this->requestType('post', 'patrocinadores');
-        //return $this->post('patrocinadores/{$id}');
+        return $this->requestType('post', 'patrocinador');
+        //return $this->post('patrocinador/{$id}');
     }
 
     /*
@@ -53,8 +53,8 @@ class Patrocinador extends GuzzleHttpRequest
     */
     public function delete($id)
     {
-        //return $this->requestType('..DELETE', 'patrocinadores/{$id}'); // arrumar metodo delete ou fazer especifico
-        return $this->delete('patrocinadores/{$id}');
+        //return $this->requestType('..DELETE', 'patrocinador/{$id}'); // arrumar metodo delete ou fazer especifico
+        return $this->delete('patrocinador/{$id}');
     }
 
     /*
@@ -62,13 +62,13 @@ class Patrocinador extends GuzzleHttpRequest
     */
     public function edit($id)
     {
-        return $this->requestType('GET', 'patrocinadores/{$id}/edit');
-        //return $this->get('patrocinadores/{$id}/edit');
+        return $this->requestType('GET', 'patrocinador/{$id}/edit');
+        //return $this->get('patrocinador/{$id}/edit');
     }
 
     public function update($patrocinador, $id)
     {
-        return $this->requestType('PUT', 'patrocinadores/{$id}');
-        //return $this->put('patrocinadores/{$id}');
+        return $this->requestType('PUT', 'patrocinador/{$id}');
+        //return $this->put('patrocinador/{$id}');
     }
 }

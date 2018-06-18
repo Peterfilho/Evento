@@ -25,9 +25,9 @@ class PatrocinadoresController extends Controller
      */
     public function index()
     {
-        $patrocinador = $this->patrocinadorService->findAll();
-
-        return view('Patrocinador.index', compact($patrocinador));
+        $patrocinadores = $this->patrocinadorService->findAll();
+        dd($patrocinadores);
+        return view('patrocinador.index', compact('patrocinadores'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PatrocinadoresController extends Controller
      */
     public function show($id)
     {
-        $patrocinadors = $this->patrocinadorService->find($id);
+        $patrocinadores = $this->patrocinadorService->find($id);
     }
 
     /**

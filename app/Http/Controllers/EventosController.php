@@ -26,8 +26,7 @@ class EventosController extends Controller
     public function index()
     {
         $eventos = $this->eventoService->findAll();
-        //var_dump($eventos);
-      //  exit;
+        //dd($eventos);
         return view('evento.index', compact('eventos'));
     }
 
