@@ -18,11 +18,6 @@ class EventosController extends Controller
         $this->eventoService = $eventoService;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $eventos = $this->eventoService->findAll();
@@ -31,64 +26,49 @@ class EventosController extends Controller
         return view('evento.index', compact('eventos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('evento.create', compact('evento'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'event_date' => 'required',
+            'site' => 'required',
+            'description' => 'required',
+            'event_hour' => 'required',
+        ], $messages = [
+            'required' => 'Campo obrigatório!',
+        ]);
+
         $evento = new Evento;
         $evento->fromArray($request->all());
-        $event = $this->eventoService->save($evento->toArray());
+        $evento = $this->eventoService->save($evento->toArray());
         //var_dump($event);
-        //exit;
-        return view('Layout.app');
+        //exit;btn btn-primary
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Evento  com sucesso!', 'success');
+        return redirect('events');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $eventos = $this->eventoService->find($id);
+        $evento = $this->eventoService->find($id);
+        return view('evento.show', compact('evento'));
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $eventos = $this->eventoService->find($id);
         return view('evento.edit', ['evento' => $eventos]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
+
         $data = $this->eventoService->find($id);
         $data = array_merge($data, $request->all());
         $evento = new Evento;
@@ -98,12 +78,6 @@ class EventosController extends Controller
         return view('Layout.app');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $eventos = $this->eventoService->delete($id);

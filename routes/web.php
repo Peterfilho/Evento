@@ -1,12 +1,9 @@
 <?php
 
 Route::get('/', function () {
-    return view('Layout.app');
+    return view('dashboard.index');
 });
-
-Route::get('/newevent', function () {
-    return view('evento/event');
-});
+Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
 Route::get('/newpatrocinador', function () {
     return view('patrocinador/cadastrar');
