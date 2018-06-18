@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <title>Gerenciador de Eventos</title>
   <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"/>
-  <link href="{{asset('vendor/font-awesome/css/font-awesome.min.cs')}}" rel="stylesheet"/>
+  <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"/>
   <link href="{{asset('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet"/>
   <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet"/>
 </head>
