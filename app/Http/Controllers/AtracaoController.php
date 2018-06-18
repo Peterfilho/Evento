@@ -10,8 +10,9 @@ namespace evento\Http\Controllers;
 
 use Illuminate\Http\Request;
 use evento\Services\AtracaoService;
+use evento\Services\EventoService;
 use evento\Models\Atracao;
-
+use evento\Models\Evento;
 
 class AtracaoController  extends Controller
 {
@@ -22,9 +23,10 @@ class AtracaoController  extends Controller
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(AtracaoService $atracaoService)
+    public function __construct(AtracaoService $atracaoService, EventoService $eventoService)
     {
         $this->atracaoService = $atracaoService;
+        $this->eventoService = $eventoService;
     }
 
     public function index()
@@ -36,8 +38,8 @@ class AtracaoController  extends Controller
 
     public function create()
     {
-        //$eventos = $this->eventoService->findAll();
-        //dd($eventos);
+        $eventos = $this->eventoService->findAll();
+        dd($eventos);
         return view('atracao.create', compact('atracao', 'eventos'));
     }
 
