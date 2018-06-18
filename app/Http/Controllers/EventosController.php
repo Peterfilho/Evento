@@ -26,8 +26,9 @@ class EventosController extends Controller
     public function index()
     {
         $eventos = $this->eventoService->findAll();
-
-        return view('Eventos.index', compact($eventos));
+        //var_dump($eventos);
+      //  exit;
+        return view('evento.index', compact('eventos'));
     }
 
     /**
@@ -50,7 +51,10 @@ class EventosController extends Controller
     {
         $evento = new Evento;
         $evento->fromArray($request->all());
-        return $this->eventoService->save($evento->toArray());
+        $event = $this->eventoService->save($evento->toArray());
+        //var_dump($event);
+        //exit;
+        return view('Layout.app');
     }
 
     /**
@@ -72,7 +76,8 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        $eventos = $this->eventoService->edit($id);
+        $eventos = $this->eventoService->find($id);
+        return view('eventos.edit', ['evento' => $evento])
     }
 
     /**

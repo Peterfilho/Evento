@@ -4,11 +4,11 @@ namespace evento\Models;
 class Evento
 {
     //public $id;
-    public $nome;
-    public $data;
-    public $horario;
-    public $local;
-    public $descricao;
+    public $name;
+    public $event_date;
+    public $event_hour;
+    public $site;
+    public $description;
     public $status;
     public $eventocol; // ?
 
@@ -26,11 +26,11 @@ class Evento
     {
 
         //$this->id    = $data['id'] ?? null;
-        $this->nome  = $data['name'] ?? null;
-        $this->data = $this->dateConvert($data['date']) ?? null;
-        $this->horario = $data['time'] ?? null;
-        $this->local = $data['local'] ?? null;
-        $this->descricao = $data['description'] ?? null;
+        $this->name  = $data['name'] ?? null;
+        $this->event_date = $this->dateConvert($data['event_date']) ?? null;
+        $this->event_hour = $data['event_hour'] ?? null;
+        $this->site = $data['site'] ?? null;
+        $this->description = $data['description'] ?? null;
         $this->status = $data['status'] ?? null;
         $this->eventocol = $data['eventocol'] ?? null;
     }
@@ -38,11 +38,11 @@ class Evento
     {
         return [
             //'id'    => $this->id,
-            'name'  => $this->nome,
-            'date' => $this->data,
-            'time' => $this->horario,
-            'local' => $this->local,
-            'description' => $this->descricao,
+            'name'  => $this->name,
+            'event_date' => $this->event_date,
+            'event_hour' => $this->event_time,
+            'site' => $this->site,
+            'description' => $this->description,
             'status' => true,
             'eventocol' => $this->eventocol,
         ];

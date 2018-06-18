@@ -71,7 +71,12 @@
             </li>
           </ul>
         </li>
-
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ url("/events") }}">
+            <i class="fa fa-fw fa-plus"></i>
+            <span class="nav-link-text">Listar Evento</span>
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

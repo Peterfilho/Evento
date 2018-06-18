@@ -12,15 +12,15 @@
       </div>
       <div class="form-group">
           <label class="control-label" for="data">Data: *</label>
-          <input id="date" name="date" class="form-control" autofocus>
+          <input id="event_date" name="event_date" class="form-control" autofocus>
       </div>
       <div class="form-group">
           <label class="control-label" for="horario">Horario: *</label>
-          <input id="time" name="time" class="form-control" autofocus>
+          <input id="event_time" name="event_time" class="form-control" autofocus>
       </div>
       <div class="form-group">
           <label class="control-label" for="local">Local: *</label>
-          <input id="local" name="local" class="form-control" autofocus>
+          <input id="site" name="site" class="form-control" autofocus>
       </div>
       <div class="form-group">
           <label class="control-label" for="descricao">Descrição: *</label>
