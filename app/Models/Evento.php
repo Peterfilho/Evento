@@ -47,4 +47,9 @@ class Evento
             'eventocol' => $this->eventocol,
         ];
     }
+
+    public function register()
+    {
+        return $this->belongsToMany('App\Model\Atracao');
+    }
 }

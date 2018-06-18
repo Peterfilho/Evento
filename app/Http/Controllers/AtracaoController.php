@@ -13,10 +13,11 @@ use evento\Services\AtracaoService;
 use evento\Models\Atracao;
 
 
-class AtracaoController
+class AtracaoController  extends Controller
 {
 
     protected $atracaoService;
+    protected $eventoService;
 
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
@@ -35,7 +36,9 @@ class AtracaoController
 
     public function create()
     {
-        return view('atracao.atracao', compact('atracao'));
+        //$eventos = $this->eventoService->findAll();
+        //dd($eventos);
+        return view('atracao.create', compact('atracao', 'eventos'));
     }
 
     public function show($id)

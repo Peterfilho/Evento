@@ -1,4 +1,3 @@
-
 @extends('Layout.app')
 
 @section('content')
@@ -13,6 +12,13 @@
         <label class="control-label" for="description">Descrição: *</label>
         <input id="description" name="description" class="form-control" autofocus>
     </div>
+    <div class="form-group">
+        <label class="control-label" for="description">Evento: *</label>
+        {{{ Form::hidden('event_id','2',  array('class'=>'form-control')) }}}
+
+    </div>
+
+
     <button class="btn btn-primary">Cadastrar</button>
 
     {!! Form::close() !!}
