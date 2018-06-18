@@ -40,7 +40,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="{{ url("/newmarketing") }}">
             <i class="fa fa-fw fa-plus"></i>
             <span class="nav-link-text">Marketing</span>
           </a>

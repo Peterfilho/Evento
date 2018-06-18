@@ -32,7 +32,7 @@ class Evento
         $this->local = $data['local'] ?? null;
         $this->descricao = $data['description'] ?? null;
         $this->status = $data['status'] ?? null;
-        //$this->eventocol = $data['eventocol'] ?? null;
+        $this->eventocol = $data['eventocol'] ?? null;
     }
     public function toArray()
     {
@@ -44,7 +44,7 @@ class Evento
             'local' => $this->local,
             'description' => $this->descricao,
             'status' => true,
-            //'eventocol' => $this->eventocol,
+            'eventocol' => $this->eventocol,
         ];
     }
 }

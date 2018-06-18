@@ -9,8 +9,8 @@ use GuzzleHttp\Exception\ClientException;
 abstract class AbstractService
 {
     const DATABASE_API_VERSION = '/api/v1';
-    const DATABASE_API_EMAIL = 'team@thanos.com';
-    const DATABASE_API_TOKEN = 'zjg7izRE9KRhrpzYuoBa';
+    const DATABASE_API_EMAIL = "team@thanos.com";
+    const DATABASE_API_TOKEN = "zjg7izRE9KRhrpzYuoBa";
     const NOT_FOUND = 404;
     const NOT_FOUND_MESSAGE = 'Not found.';
     const INTERNAL_SERVER_ERROR = 500;
@@ -63,6 +63,8 @@ abstract class AbstractService
         }
         return $this->parseResponseToJson($response);
     }
+
+
     public function save(array $entity)
     {
         $body = [RequestOptions::JSON => $entity];
@@ -72,7 +74,7 @@ abstract class AbstractService
         $options = array_merge_recursive($options, $body);
 
         try {
-          
+
             $response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
 
         } catch (ClientException $e) {

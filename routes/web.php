@@ -12,9 +12,14 @@ Route::get('/newpatrocinador', function () {
     return view('patrocinador/cadastrar');
 });
 
+Route::get('/newmarketing', function () {
+    return view('Marketing/cadastrar');
+});
+
 //Route::resource('patrocinador', 'PatrocinadoresController');
 
 // para usar com guzzle - teste
-Route::resource('posts', 'PostsController');
+
 Route::resource('events', 'EventosController');
 Route::resource('sponsor', 'PatrocinadoresController');
+Route::resource('marketings', 'MarketingController');
