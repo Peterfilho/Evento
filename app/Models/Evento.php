@@ -34,13 +34,27 @@ class Evento
         $this->status = $data['status'] ?? null;
         $this->eventocol = $data['eventocol'] ?? null;
     }
+
+    public function fromArrayUpdate(array $data)
+    {
+
+        //$this->id    = $data['id'] ?? null;
+        $this->name  = $data['name'] ?? null;
+        $this->event_date = $data['event_date'] ?? null;
+        $this->event_hour = $data['event_hour'] ?? null;
+        $this->site = $data['site'] ?? null;
+        $this->description = $data['description'] ?? null;
+        $this->status = $data['status'] ?? null;
+        $this->eventocol = $data['eventocol'] ?? null;
+    }
+
     public function toArray()
     {
         return [
             //'id'    => $this->id,
             'name'  => $this->name,
             'event_date' => $this->event_date,
-            'event_hour' => $this->event_time,
+            'event_hour' => $this->event_hour,
             'site' => $this->site,
             'description' => $this->description,
             'status' => true,

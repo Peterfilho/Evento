@@ -25,9 +25,9 @@
     <td>{{ $evento['event_hour'] }}</td>
     <td>{{ $evento['description'] }}</td>
     <td><a class="btn btn-primary" href="events/{{ $evento['id'] }}/edit">Editar</a>
-      {{--{!! Form::open(array('url' => "events/ {{ $evento['id'] }}" , 'method' => 'delete')) !!}
-        <button type="submit">Deletar</button>
-{!! Form::close() !!} --}}
+      {!! Form::open(array('route' => array('events.destroy', $evento['id']),  'method' => 'delete')) !!}
+					<button type="submit" class="btn btn-danger">X</button>
+			{!! Form::close() !!}
     </td>
   </tr>
 @endforeach

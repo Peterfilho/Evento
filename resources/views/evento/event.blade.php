@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
           <label class="control-label" for="horario">Horario: *</label>
-          <input id="event_time" name="event_time" class="form-control" autofocus>
+          <input id="event_hour" name="event_hour" class="form-control" autofocus>
       </div>
       <div class="form-group">
           <label class="control-label" for="local">Local: *</label>
