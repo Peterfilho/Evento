@@ -77,7 +77,7 @@ class EventosController extends Controller
     public function edit($id)
     {
         $eventos = $this->eventoService->find($id);
-        return view('eventos.edit', ['evento' => $evento]);
+        return view('evento.edit', ['evento' => $eventos]);
     }
 
     /**
@@ -92,8 +92,10 @@ class EventosController extends Controller
         $data = $this->eventoService->find($id);
         $data = array_merge($data, $request->all());
         $evento = new Evento;
-        $evento->fromArray($data);
-        return $this->eventoService->update($id, $evento->toArray());
+        $evento->fromArrayUpdate($data);
+        $this->eventoService->update($id, $evento->toArray());
+
+        return view('Layout.app');
     }
 
     /**
@@ -105,5 +107,6 @@ class EventosController extends Controller
     public function destroy($id)
     {
         $eventos = $this->eventoService->delete($id);
+        return redirect('/events');
     }
 }
