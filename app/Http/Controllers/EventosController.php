@@ -77,7 +77,7 @@ class EventosController extends Controller
     public function edit($id)
     {
         $eventos = $this->eventoService->find($id);
-        return view('eventos.edit', ['evento' => $evento])
+        return view('eventos.edit', ['evento' => $evento]);
     }
 
     /**
