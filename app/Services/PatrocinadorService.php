@@ -5,6 +5,6 @@ class PatrocinadorService extends AbstractService
 {
     public function __construct()
     {
-        parent::__construct("sponsor"); // verificar
+        parent::__construct("sponsors"); // verificar
     }
 }
