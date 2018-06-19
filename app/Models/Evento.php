@@ -54,11 +54,11 @@ class Evento
             //'id'    => $this->id,
             'name'  => $this->name,
             'event_date' => $this->event_date,
-            'event_hour' => $this->event_hour,
-            'site' => $this->site,
-            'description' => $this->description,
-            'status' => true,
-            'eventocol' => $this->eventocol,
+                'event_hour' => $this->event_hour,
+                'site' => $this->site,
+                'description' => $this->description,
+                'status' => true,
+                'eventocol' => $this->eventocol,
         ];
     }
 
