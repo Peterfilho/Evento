@@ -64,6 +64,10 @@ class PatrocinioController extends Controller
         $patrocinio->fromArray($request->all());
         $patrocinio = $this->patrocinioService->save($patrocinio->toArray());
 
+        /*$despesa = new Despesa;
+        $despesa->fromArray($request->all());
+        $despesa = $this->despesaService->save($despesa->toArray());*/
+
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');
         return redirect('events'); // mudar
     }
