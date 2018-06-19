@@ -21,3 +21,6 @@ Route::resource('events', 'EventosController');
 Route::resource('sponsors', 'PatrocinadoresController');
 Route::resource('marketings', 'MarketingController');
 Route::resource('/attractions', 'AtracaoController');
+Route::get('sponsorships/{id}', 'PatrocinioController@create')->name('sponsorships.create');
+Route::resource('sponsorships', 'PatrocinioController', ['except' => [
+    'create']]);
