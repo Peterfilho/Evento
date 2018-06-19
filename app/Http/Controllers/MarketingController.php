@@ -25,9 +25,9 @@ class MarketingController extends Controller
      */
     public function index()
     {
-        $marketing = $this->marketingService->findAll();
+        $marketings = $this->marketingService->findAll();
 
-        return view('Marketing.index', compact($marketing));
+        return view('Marketing.index', compact('marketings'));
     }
 
     /**
@@ -37,7 +37,7 @@ class MarketingController extends Controller
      */
     public function create()
     {
-        //
+        return view('Marketing.create', compact('marketing'));
     }
 
     /**
@@ -48,9 +48,19 @@ class MarketingController extends Controller
      */
     public function store(Request $request)
     {
+      $this->validate($request, [
+          'name' => 'required',
+          'description' => 'required',
+          'value' => 'required',
+      ], $messages = [
+          'required' => 'Campo obrigatório!',
+      ]);
         $marketing = new Marketing;
         $marketing->fromArray($request->all());
-        return $this->marketingService->save($marketing->toArray());
+        $marketing = $this->marketingService->save($marketing->toArray());
+
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Marketing  com sucesso!', 'success');
+        return redirect('marketings');
     }
 
     /**
@@ -61,7 +71,9 @@ class MarketingController extends Controller
      */
     public function show($id)
     {
-        $marketings = $this->marketingService->find($id);
+        $marketing = $this->marketingService->find($id);
+        return view('Marketing.show', compact('marketing'));
+
     }
 
     /**
@@ -72,7 +84,8 @@ class MarketingController extends Controller
      */
     public function edit($id)
     {
-        $marketings = $this->marketingService->edit($id);
+        $marketing = $this->marketingService->find($id);
+        return view('marketing.edit', ['marketing' => $marketing]);
     }
 
     /**
@@ -86,9 +99,10 @@ class MarketingController extends Controller
     {
         $data = $this->marketingService->find($id);
         $data = array_merge($data, $request->all());
-        $marketing = new Evento;
+        $marketing = new Marketing;
         $marketing->fromArray($data);
-        return $this->marketingService->update($id, $marketing->toArray());
+        $this->marketingService->update($id, $marketing->toArray());
+        return redirect('/marketings');
     }
 
     /**
@@ -100,5 +114,6 @@ class MarketingController extends Controller
     public function destroy($id)
     {
         $marketings = $this->marketingService->delete($id);
+        return redirect('/marketings');
     }
 }
