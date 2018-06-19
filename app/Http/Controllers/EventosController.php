@@ -27,7 +27,7 @@ class EventosController extends Controller
     }
 
     public function create()
-    {
+    {-+
         return view('evento.create', compact('evento'));
 
     }
