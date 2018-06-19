@@ -51,6 +51,26 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-calendar"></i>
+                    <span class="nav-link-text">Patrocinador</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="{{{route('sponsors.create')}}}">
+                            <i class="fa fa-fw fa-arrow-right"></i>
+                            <span class="nav-link-text">Adicionar Patrocinador</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{{route('sponsors.index')}}}">
+                            <i class="fa fa-fw fa-arrow-right"></i>
+                            <span class="nav-link-text">Todos os Patrocinadores</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
                 <a class="nav-link" href="{{ url("/newpatrocinador") }}">
                     <i class="fa fa-fw fa-plus"></i>

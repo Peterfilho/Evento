@@ -25,9 +25,9 @@ class PatrocinadoresController extends Controller
      */
     public function index()
     {
-        $patrocinador = $this->patrocinadorService->findAll();
+        $patrocinadores = $this->patrocinadorService->findAll();
 
-        return view('Patrocinador.index', compact($patrocinador));
+        return view('Patrocinador.index', compact('patrocinadores'));
     }
 
     /**
@@ -37,7 +37,7 @@ class PatrocinadoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('Patrocinador.create', compact('patrocinador'));
     }
 
     /**
@@ -48,9 +48,19 @@ class PatrocinadoresController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+        ], $messages = [
+            'required' => 'Campo obrigatório!',
+        ]);
+
         $patrocinador = new Patrocinador;
         $patrocinador->fromArray($request->all());
-        return $this->patrocinadorService->save($patrocinador->toArray());
+        $patrocinador = $this->patrocinadorService->save($patrocinador->toArray());
+
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinador  com sucesso!', 'success');
+        return redirect('sponsors');
     }
 
     /**
@@ -61,7 +71,8 @@ class PatrocinadoresController extends Controller
      */
     public function show($id)
     {
-        $patrocinadors = $this->patrocinadorService->find($id);
+        $patrocinador = $this->patrocinadorService->find($id);
+        return view('Patrocinador.show', compact('patrocinador'));
     }
 
     /**
@@ -72,7 +83,8 @@ class PatrocinadoresController extends Controller
      */
     public function edit($id)
     {
-        $patrocinadors = $this->patrocinadorService->edit($id);
+        $patrocinador = $this->patrocinadorService->find($id);
+        return view('Patrocinador.edit', ['patrocinador' => $patrocinador]);
     }
 
     /**
@@ -86,9 +98,10 @@ class PatrocinadoresController extends Controller
     {
         $data = $this->patrocinadorService->find($id);
         $data = array_merge($data, $request->all());
-        $patrocinador = new Evento;
+        $patrocinador = new Patrocinador;
         $patrocinador->fromArray($data);
-        return $this->patrocinadorService->update($id, $patrocinador->toArray());
+        $this->patrocinadorService->update($id, $patrocinador->toArray());
+        return redirect('/sponsors');
     }
 
     /**
@@ -100,5 +113,6 @@ class PatrocinadoresController extends Controller
     public function destroy($id)
     {
         $patrocinadors = $this->patrocinadorService->delete($id);
+        return redirect('/sponsors');
     }
 }

@@ -85,7 +85,7 @@ class MarketingController extends Controller
     public function edit($id)
     {
         $marketing = $this->marketingService->find($id);
-        return view('marketing.edit', ['marketing' => $marketing]);
+        return view('Marketing.edit', ['marketing' => $marketing]);
     }
 
     /**

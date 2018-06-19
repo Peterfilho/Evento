@@ -5,9 +5,9 @@ Route::get('/', function () {
 });
 Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
-Route::get('/newpatrocinador', function () {
+/*Route::get('/newpatrocinador', function () {
     return view('patrocinador/cadastrar');
-});
+});*/
 
 Route::get('/newmarketing', function () {
     return view('Marketing/cadastrar');
@@ -18,7 +18,6 @@ Route::get('/newmarketing', function () {
 // para usar com guzzle - teste
 
 Route::resource('events', 'EventosController');
-Route::resource('sponsor', 'PatrocinadoresController');
+Route::resource('sponsors', 'PatrocinadoresController');
 Route::resource('marketings', 'MarketingController');
 Route::resource('/attractions', 'AtracaoController');
-
