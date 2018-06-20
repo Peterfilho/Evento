@@ -107,7 +107,8 @@ class PatrocinioController extends Controller
         $patrocinio = new Patrocinio;
         $patrocinio->fromArray($data);
         $this->patrocinioService->update($id, $patrocinio->toArray());
-        return redirect('/events');
+        
+        return redirect('events/' . $patrocinio['event_id']);
     }
 
     /**
