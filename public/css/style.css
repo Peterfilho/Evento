@@ -23,3 +23,40 @@
 .row-show{
     margin-bottom: 15px;
 }
+
+.breadcrumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 13px;
+
+}
+
+.breadcrumb a{
+    text-decoration: none;
+    color: #4a545f;
+}
+.breadcrumb a:hover, .breadcrumb a .active{
+    text-decoration: none;
+    color: #000;
+}
+
+nav-tabs .nav-link {
+    color: #4a545f;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #4a545f;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #212529;
+}
+
+.right{
+    padding-top: 20px;
+    float: right;
+}

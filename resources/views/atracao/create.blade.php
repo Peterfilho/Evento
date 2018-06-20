@@ -18,7 +18,6 @@
 
     </div>
 
-
     <button class="btn btn-primary">Cadastrar</button>
 
     {!! Form::close() !!}

@@ -4,87 +4,41 @@
 @section('content')
 
     <h1>Evento {{{$evento['id']}}} </h1>
-    <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{{route('dashboard')}}}"><i class="fa fa-fw  fa fa-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{{route('events.index')}}}"><i class="fa fa-fw  fa  fa-bars"></i> Todos os Eventos</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a class="active" href="{{{route('events.index')}}}"> <i class="fa fa-fw  fa  fa-calendar"></i> Evento {{{$evento['id']}}}</a></li>
+        </ol>
+    </nav>
 
-    <div class="row row-show ">
-        <div class="col-sm-8 col-lg-8 ">
-            <div class="row divider-2">
-                <div class="col-sm-8 col-lg-8  ">
-                    <span class="control-span"><b>Nome do Evento</b></span>
-                </div>
-                <div class="col-sm-8 col-lg-8  ">
-                    <span class="control-span">{{{ $evento['name'] }}}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8 col-lg-2 ">
-            <div class="row divider-2">
-                <div class="col-sm-8 col-lg-12 ">
-                    <span class="control-span"><b>Data Evento</b></span>
-                </div>
-                <div class="col-sm-8 col-lg-12 col-centered  ">
-                    <span class="control-span">{{ date('d/m/Y', strtotime($evento['event_date'])) }}</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8 col-lg-2 col-centered">
-            <div class="row divider-2">
-                <div class="col-sm-8 col-lg-12 col-centered  ">
-                    <span class="control-span"><b>Hora do Evento</b></span>
-                </div>
-                <div class="col-sm-8 col-lg-12 col-centered  ">
-                    <span class="control-span">{{ date('g:i', strtotime($evento['event_hour'])) }}</span>
-                </div>
-            </div>
-        </div>
+    @include('evento.shared.basic')
+
+    <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar Evento</a>
+    <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar Evento</a>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="atracao-tab" data-toggle="tab" href="#atracao" role="tab" aria-controls="#atracao" aria-selected="true">
+            <i class="fa fa-fw  fa fa-camera-retro"></i> Atração</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " id="patrocinador-tab" data-toggle="tab" href="#patrocinador" role="tab" aria-controls="patrocinador" aria-selected="true"><i class="fa fa-fw  fa-address-card"></i> Patrocinador</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        @include('evento.shared.atracao')
+        @include('evento.shared.patrocinio')
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
 
-    <div class="row row-show ">
-        <div class="col-sm-8 col-lg-12 ">
-            <div class="row divider-2">
-                <div class="col-sm-8 col-lg-8  ">
-                    <span class="control-span"><b>Local</b></span>
-                </div>
-                <div class="col-sm-8 col-lg-8  ">
-                    <span class="control-span">{{{ $evento['site'] }}}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row row-show ">
-        <div class="col-sm-8 col-lg-12 ">
-            <div class="row divider-2">
-                <div class="col-sm-8 col-lg-12 ">
-                    <span class="control-span"><b>Descrição</b></span>
-                </div>
-                <div class="col-sm-8 col-lg-12 col-centered  ">
-                    <span class="control-span">{{ $evento['description'] }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar</a>
-    <a class="btn btn-primary btn-crud " href="{{ route('sponsorships.create', $evento['id']) }}">Adicionar Patrocinio</a>
-    <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar</a>
+    @include('evento.shared.delete')
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir o Evento {{$evento['name']}}?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Esta ação não pode ser desfeita.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary"  type="button" href="{{ route('events.show',$evento['id']) }}" data-dismiss="modal">Cancel</button>
-                    {!! Form::open(array('route' => array('events.destroy', $evento['id']),  'method' => 'delete')) !!}
-                    <button type="submit" class="btn btn-danger">Deletar</button>
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
 
 @endsection

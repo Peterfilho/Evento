@@ -65,7 +65,7 @@ class PatrocinioController extends Controller
         $patrocinio = $this->patrocinioService->save($patrocinio->toArray());
 
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');
-        return redirect('events'); // mudar
+        return redirect('events/' . $patrocinio['event_id']); // mudar
     }
 
     /**

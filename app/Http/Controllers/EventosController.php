@@ -4,24 +4,32 @@ namespace evento\Http\Controllers;
 
 use Illuminate\Http\Request;
 use evento\Services\EventoService;
+use evento\Services\PatrocinadorService;
+use evento\Services\PatrocinioService;
 use evento\Models\Evento;
 
 class EventosController extends Controller
 {
     protected $eventoService;
+    protected $patrocinadorService;
+    protected $patrocinioService;
 
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(EventoService $eventoService)
+    public function __construct(EventoService $eventoService, PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService)
     {
         $this->eventoService = $eventoService;
+        $this->patrocinadorService = $patrocinadorService;
+        $this->patrocinioService = $patrocinioService;
     }
+
+
 
     public function index()
     {
         $eventos = $this->eventoService->findAll();
-        //var_d($eventos);
+
       //  exit;
         return view('evento.index', compact('eventos'));
     }
@@ -56,7 +64,9 @@ class EventosController extends Controller
     public function show($id)
     {
         $evento = $this->eventoService->find($id);
-        return view('evento.show', compact('evento'));
+        //dd($evento);
+        $patrocinadores = $this->patrocinadorService->findAll();
+        return view('evento.show', compact('evento', 'patrocinadores'));
 
     }
 
