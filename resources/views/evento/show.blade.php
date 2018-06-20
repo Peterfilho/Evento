@@ -64,6 +64,7 @@
         </div>
     </div>
     <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar</a>
+    <a class="btn btn-primary btn-crud " href="{{ route('sponsorships.create', $evento['id']) }}">Adicionar Patrocinio</a>
     <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar</a>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,4 +88,3 @@
     </div>
 
 @endsection
-
