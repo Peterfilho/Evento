@@ -1,5 +1,34 @@
 <div class="tab-pane fade show " id="patrocinador" role="tabpanel" aria-labelledby="patrocinador-tab">
+  <br>
+  <br>
+  <div class="col-lg-6">
+      <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+          <tr>
+            <th>Patrocinador</th>
+            <th>Valor</th>
+            <th>Evento</th>
+            <th>Ações</th>
+          </tr>
+          @foreach ($patrocinios as $patrocinio)
+          <tr>
+            @if ($patrocinio['event_id']==$evento['id'])
+              @foreach ($patrocinadores as $patrocinador)
+                @if ($patrocinio['sponsor_id']==$patrocinador['id'])
+                  <td>{{ $patrocinador['name'] }}</td>
+                @endif
+              @endforeach
+              <td>{{ $patrocinio['value'] }}</td>
+              <td>{{ $evento['name'] }}</td>
+              <td></td>
+            @endif
 
+          </tr>
+          @endforeach
+
+        </table>
+    </div>
+  </div>
     <div class="right">
         <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createPatrocinador" href="">Adicionar Patrocinador</a>
     </div>

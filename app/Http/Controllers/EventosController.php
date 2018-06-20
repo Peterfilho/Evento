@@ -66,7 +66,8 @@ class EventosController extends Controller
         $evento = $this->eventoService->find($id);
         //dd($evento);
         $patrocinadores = $this->patrocinadorService->findAll();
-        return view('evento.show', compact('evento', 'patrocinadores'));
+        $patrocinios = $this->patrocinioService->findAll();
+        return view('evento.show', compact('evento', 'patrocinadores', 'patrocinios'));
 
     }
 
