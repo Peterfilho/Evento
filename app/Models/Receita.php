@@ -5,7 +5,7 @@ class Receita
 {
     //public $id;
     public $start_value;
-    public $event_id;;
+    public $event_id;
 
     public function fromArray(array $data)
     {

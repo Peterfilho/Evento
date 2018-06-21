@@ -2,6 +2,7 @@
 namespace evento\Http\Controllers;
 use Illuminate\Http\Request;
 use evento\Services\EventoService;
+use evento\Services\AtracaoService;
 use evento\Services\PatrocinadorService;
 use evento\Services\PatrocinioService;
 use evento\Models\Evento;
@@ -10,13 +11,15 @@ class EventosController extends Controller
     protected $eventoService;
     protected $patrocinadorService;
     protected $patrocinioService;
+    protected $atracaoService;
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
-    public function __construct(EventoService $eventoService, PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService)
+    public function __construct(EventoService $eventoService, AtracaoService $atracaoService, PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService)
     {
         $this->eventoService = $eventoService;
         $this->patrocinadorService = $patrocinadorService;
         $this->patrocinioService = $patrocinioService;
+        $this->atracaoService = $atracaoService;
     }
     public function index()
     {
@@ -50,15 +53,19 @@ class EventosController extends Controller
     public function show($id)
     {
         $evento = $this->eventoService->find($id);
-        $patrocinios= $this->eventoService->patrocinioService;
-        dd($patrocinios);
-        return view('evento.show', compact('evento', 'patrocinadores'));
+        $patrocinios = $this->patrocinioService->findAll();
+        $patrocinadores = $this->patrocinadorService->findAll();
+        $atracoes = $this->atracaoService->findAll();
+        //dd($patrocinios);
+        return view('evento.show', compact('evento', 'patrocinios', 'patrocinadores', 'atracoes'));
     }
+
     public function edit($id)
     {
         $eventos = $this->eventoService->find($id);
         return view('evento.edit', ['evento' => $eventos]);
     }
+
     public function update(Request $request, $id)
     {
         $data = $this->eventoService->find($id);
@@ -66,7 +73,7 @@ class EventosController extends Controller
         $evento = new Evento;
         $evento->fromArrayUpdate($data);
         $this->eventoService->update($id, $evento->toArray());
-        return view('Layout.app');
+        return redirect('events/' . $id);
     }
     public function destroy($id)
     {

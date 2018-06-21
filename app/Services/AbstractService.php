@@ -73,6 +73,7 @@ abstract class AbstractService
 
         $options = array_merge_recursive($options, $body);
 
+        //$response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
         try {
 
             $response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);

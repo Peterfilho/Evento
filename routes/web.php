@@ -5,22 +5,14 @@ Route::get('/', function () {
 });
 Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
-/*Route::get('/newpatrocinador', function () {
-    return view('patrocinador/cadastrar');
-});*/
-
-Route::get('/newmarketing', function () {
-    return view('Marketing/cadastrar');
-});
-
-//Route::resource('patrocinador', 'PatrocinadoresController');
-
-// para usar com guzzle - teste
-
 Route::resource('events', 'EventosController');
 Route::resource('sponsors', 'PatrocinadoresController');
 Route::resource('marketings', 'MarketingController');
-Route::resource('/attractions', 'AtracaoController');
+
 Route::get('sponsorships/{id}', 'PatrocinioController@create')->name('sponsorships.create');
+Route::get('attractions/{id}', 'AtracaoController@create')->name('attractions.create');
+
+Route::resource('/attractions', 'AtracaoController', ['except' => [
+    'create']]);
 Route::resource('sponsorships', 'PatrocinioController', ['except' => [
     'create']]);

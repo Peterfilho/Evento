@@ -22,13 +22,10 @@
               <td>{{ $evento['name'] }}</td>
               <td>
                 <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
-
               </td>
             @endif
-
           </tr>
           @endforeach
-
         </table>
     </div>
   </div>

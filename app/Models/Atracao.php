@@ -22,14 +22,14 @@ class Atracao
 
     public $name;
     public $description;
-    public $event_id;
+    public $attraction_event_id;
 
     public function fromArray(array $data)
     {
 
         $this->name  = $data['name'] ?? null;
         $this->description = $data['description'] ?? null;
-        $this->event_id = $data['event_id'] ?? null;
+        $this->attraction_event_id = $data['attraction_event_id'] ?? null;
 
     }
     public function toArray()
@@ -38,7 +38,7 @@ class Atracao
             //'id'    => $this->id,
             'name'  => $this->name,
             'description' => $this->description,
-            'event_id' => $this->event_id,
+            'attraction_event_id' => $this->attraction_event_id,
         ];
     }
 

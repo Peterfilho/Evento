@@ -5,21 +5,24 @@ namespace evento\Http\Controllers;
 use Illuminate\Http\Request;
 use evento\Services\PatrocinioService;
 use evento\Services\PatrocinadorService;
+use evento\Services\ReceitaService;
 use evento\Models\Patrocinio;
+use evento\Models\Receita;
 
 class PatrocinioController extends Controller
 {
     protected $patrocinioService;
     protected $patrocinadorService;
-
+    protected $receitaService;
 
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService)
+    public function __construct(PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService, ReceitaService $receitaService)
     {
         $this->patrocinioService = $patrocinioService;
         $this->patrocinadorService = $patrocinadorService;
+        $this->receitaService = $receitaService;
     }
 
     /**
@@ -62,7 +65,15 @@ class PatrocinioController extends Controller
       ]);
         $patrocinio = new Patrocinio;
         $patrocinio->fromArray($request->all());
+
         $patrocinio = $this->patrocinioService->save($patrocinio->toArray());
+
+        $receita = new Receita;
+
+        $receita_array = ['event_id' => $request->input('event_id'), 'start_value' => $request->input('value')];
+        $receita->fromArray($receita_array);
+        //dd($receita);
+        $receita = $this->receitaService->save($receita->toArray());
 
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');
         return redirect('events/' . $patrocinio['event_id']); // mudar
@@ -107,8 +118,7 @@ class PatrocinioController extends Controller
         $patrocinio = new Patrocinio;
         $patrocinio->fromArray($data);
         $this->patrocinioService->update($id, $patrocinio->toArray());
-        
-        return redirect('events/' . $patrocinio['event_id']);
+        return redirect('events/' . $patrocinio->event_id);
     }
 
     /**
