@@ -67,10 +67,10 @@ class PatrocinioController extends Controller
         $patrocinio->fromArray($request->all());
         $patrocinio = $this->patrocinioService->save($patrocinio->toArray());
 
-        $receita = new Receita;
+        /*$receita = new Receita;
         $receita_array = ['event_id' => $request->input('event_id'), 'start_value' => $request->input('value')];
         $receita->fromArray($receita_array);
-        $receita = $this->receitaService->save($receita->toArray());
+        $receita = $this->receitaService->save($receita->toArray());*/
 
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');
         return redirect('events/' . $patrocinio['event_id']); // mudar
@@ -115,6 +115,12 @@ class PatrocinioController extends Controller
         $patrocinio = new Patrocinio;
         $patrocinio->fromArray($data);
         $this->patrocinioService->update($id, $patrocinio->toArray());
+
+        $receita = new Receita;
+        $receita_array = ['event_id' => $request->input('event_id'), 'start_value' => $request->input('value')];
+        $receita->fromArray($receita_array);
+        $receita = $this->receitaService->save($receita->toArray());
+
         return redirect('events/' . $patrocinio->event_id);
     }
 
@@ -127,6 +133,7 @@ class PatrocinioController extends Controller
     public function destroy($id)
     {
         $patrocinio = $this->patrocinioService->delete($id);
+        // $receita = $this->receitaService->save($receita->toArray());
         return redirect('/events');
     }
 }

@@ -8,6 +8,7 @@ Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@ind
 Route::resource('events', 'EventosController');
 Route::resource('sponsors', 'PatrocinadoresController');
 Route::resource('marketings', 'MarketingController');
+Route::resource('events_marketings', 'MarketingController');
 
 Route::get('sponsorships/{id}', 'PatrocinioController@create')->name('sponsorships.create');
 Route::get('attractions/{id}', 'AtracaoController@create')->name('attractions.create');

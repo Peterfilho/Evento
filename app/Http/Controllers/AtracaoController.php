@@ -49,11 +49,19 @@ class AtracaoController  extends Controller
 
     public function store(Request $request)
     {
-
+        // cadastra uma atracao
         $atracao= new Atracao;
         $atracao->fromArray($request->all());
         $atracao = $this->atracaoService->save($atracao->toArray());
 
+        // cadastra uma despesa do tipo atracao
+        $despesa = new Despesa;
+        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'Atracao',
+        'expense_type' => 'Atracao','expense_value' => $request->input('value')];
+        $despesa->fromArray($despesa_array);
+        $despesa = $this->despesaService->save($despesa->toArray());
+
+        // retorna para o evento
         return redirect('events/' . $atracao['attraction_event_id']);
     }
 
@@ -65,12 +73,36 @@ class AtracaoController  extends Controller
 
     public function update(Request $request, $id)
     {
+      // atualiza a atracao
+      $data = $this->atracaoService->find($id);
+      $data = array_merge($data, $request->all());
+      $atracao = new Atracao;
+      $atracao->fromArray($data);
+      $this->atracaoService->update($id, $atracao->toArray());
 
+      // cadastra uma despesa do tipo atracao
+      // descomentar depois que estiver atualizando certo
+      /*$despesa = new Despesa;
+      $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'Atracao',
+      'expense_type' => 'Atracao','expense_value' => $request->input('value')];
+      $despesa->fromArray($despesa_array);
+      $despesa = $this->despesaService->save($despesa->toArray());*/
+
+      // retorna para o evento
+      return redirect('events/' . $atracao->event_id);
     }
 
     public function destroy($id)
     {
+      // para pegar o id do evento
+      $atracao = $this->atracaoService->find($id);
+      $event_id = $atracao->attraction_event_id;
 
+      // deleta a atracao
+      $this->atracaoService->delete($id);
+
+      // retorna para o evento
+      return redirect('events/' . $event_id);
     }
 
 }

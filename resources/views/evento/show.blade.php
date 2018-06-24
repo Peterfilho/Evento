@@ -23,15 +23,22 @@
             <i class="fa fa-fw  fa fa-camera-retro"></i> Atração</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " id="patrocinador-tab" data-toggle="tab" href="#patrocinador" role="tab" aria-controls="patrocinador" aria-selected="true"><i class="fa fa-fw  fa-address-card"></i> Patrocinador</a>
+            <a class="nav-link " id="patrocinador-tab" data-toggle="tab" href="#patrocinador" role="tab" aria-controls="patrocinador" aria-selected="true">
+              <i class="fa fa-fw  fa-address-card"></i> Patrocinador</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="marketing-tab" data-toggle="tab" href="#marketing" role="tab" aria-controls="#marketing" aria-selected="true">
+            <i class="fa fa-fw  fa fa-address-card"></i> Marketing</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
         </li>
+
     </ul>
     <div class="tab-content" id="myTabContent">
-        @include('evento.shared.atracao')
+        {{--@include('evento.shared.atracao')--}}
         @include('evento.shared.patrocinio')
+        {{--@include('evento.shared.marketingEvento')--}}
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
 

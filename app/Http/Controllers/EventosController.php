@@ -12,15 +12,26 @@ class EventosController extends Controller
     protected $patrocinadorService;
     protected $patrocinioService;
     protected $atracaoService;
+    protected $marketingEventoService;
+    protected $marketingService;
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
-    public function __construct(EventoService $eventoService, AtracaoService $atracaoService, PatrocinioService $patrocinioService, PatrocinadorService $patrocinadorService)
+
+    public function __construct(EventoService $eventoService,
+                                AtracaoService $atracaoService,
+                                PatrocinioService $patrocinioService,
+                                PatrocinadorService $patrocinadorService,
+                                MarketingService $marketingService,
+                                MarketingEventoService $marketingEventoService)
     {
         $this->eventoService = $eventoService;
         $this->patrocinadorService = $patrocinadorService;
         $this->patrocinioService = $patrocinioService;
         $this->atracaoService = $atracaoService;
+        $this->marketingEventoService = $marketingEventoService;
+        $this->marketingService = $marketingService;
     }
+
     public function index()
     {
         $eventos = $this->eventoService->findAll();
@@ -56,8 +67,10 @@ class EventosController extends Controller
         $patrocinios = $this->patrocinioService->findAll();
         $patrocinadores = $this->patrocinadorService->findAll();
         $atracoes = $this->atracaoService->findAll();
+        $marketings = $this->marketingService->findAll();
+        $marketingsEvento = $this->marketingEventoService->findAll();
         //dd($patrocinios);
-        return view('evento.show', compact('evento', 'patrocinios', 'patrocinadores', 'atracoes'));
+        return view('evento.show', compact('evento', 'patrocinios', 'patrocinadores', 'atracoes', 'marketings', 'marketingsEvento'));
     }
 
     public function edit($id)
