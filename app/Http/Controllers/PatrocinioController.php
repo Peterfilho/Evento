@@ -65,14 +65,11 @@ class PatrocinioController extends Controller
       ]);
         $patrocinio = new Patrocinio;
         $patrocinio->fromArray($request->all());
-
         $patrocinio = $this->patrocinioService->save($patrocinio->toArray());
 
         $receita = new Receita;
-
         $receita_array = ['event_id' => $request->input('event_id'), 'start_value' => $request->input('value')];
         $receita->fromArray($receita_array);
-        //dd($receita);
         $receita = $this->receitaService->save($receita->toArray());
 
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');

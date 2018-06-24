@@ -16,10 +16,9 @@
               <td>{{ $atracao['name'] }}</td>
               <td>{{ $atracao['description'] }}</td>
               <td>{{ $evento['name'] }}</td>
-
               <td>
-                <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editAtracao" href="">Editar Atração</a>
-
+                <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editAtracao" href="">Editar</a>
+                <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#deleteModal{{{$atracao['id']}}}" href="TESTE">Deletar</a>
               </td>
               @endif
           </tr>
@@ -105,5 +104,25 @@
             </div>
         </div>
     </div>
+    <!-------------------------------------------------------------------------------------------------->
 
+    <div class="modal fade" id="deleteModal{{{$atracao['id']}}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir o Atração {{$atracao['name']}}?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Esta ação não pode ser desfeita.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"  type="button" href="{{ route('events.show',$evento['id']) }}" data-dismiss="modal">Cancel</button>
+                    {!! Form::open(array('route' => array('events.destroy', $evento['id']),  'method' => 'delete')) !!}
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use app\Http\Controllers\MarketingController
+use app\Http\Controllers\MarketingController;
 
 class MarketingSeeder extends Seeder
 {
