@@ -58,12 +58,12 @@ class AtracaoController  extends Controller
         $atracao = $this->atracaoService->save($atracao->toArray());
 
         // cadastra uma despesa do tipo atracao
-        /*$despesa = new Despesa;
+        $despesa = new Despesa;
         $despesa_array = ['expense_event_id' => $request->input('attraction_event_id'),
         'expense_type' => 'Atracao','expense_value' => $request->input('value')];
         //dd($despesa_array);
         $despesa->fromArray($despesa_array);
-        $despesa = $this->despesaService->save($despesa->toArray());*/
+        $despesa = $this->despesaService->save($despesa->toArray());
 
         // retorna para o evento
         return redirect('events/' . $atracao['attraction_event_id']);

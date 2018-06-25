@@ -10,14 +10,15 @@ use evento\Models\Despesa;
 
 class MarketingEventoController extends Controller
 {
-    protected $marketinEventogService;
-
+    protected $marketingEventoService;
+    protected $despesaService;
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(MarketingEventoService $marketingEventoService)
+    public function __construct(MarketingEventoService $marketingEventoService, DespesaService $despesaService)
     {
         $this->marketingEventoService = $marketingEventoService;
+        $this->despesaService = $despesaService;
     }
 
     /**
@@ -64,11 +65,11 @@ class MarketingEventoController extends Controller
         $marketingEvento = $this->marketingEventoService->save($marketingEvento->toArray());
 
         // descomentar quando estiver funcionado o cadastro
-        /*$despesa = new Despesa;
+        $despesa = new Despesa;
         $despesa_array = ['expense_event_id' => $request->input('event_id'),
         'expense_type' => 'marketing','expense_value' => $request->input('value')];
         $despesa->fromArray($despesa_array);
-        $despesa = $this->despesaService->save($despesa->toArray());*/
+        $despesa = $this->despesaService->save($despesa->toArray());
 
         // retorna para o evento
         flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Marketing salvo com sucesso!', 'success');
