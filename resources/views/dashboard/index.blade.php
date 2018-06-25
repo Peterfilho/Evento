@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h1>Dashboard</h1>
+    <img class="responsive-img" width="100%" src="{!! asset('img/dash.jpg') !!}">
 
 @endsection
