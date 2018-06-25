@@ -31,6 +31,7 @@
         $('.hour').mask('00:00');
         $('.clear-if-not-match').mask("00-00-0000", {clearIfNotMatch: true});
         $('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+        $(".real").inputmask('R$ 999.999.999,99', { numericInput: true});
         $('.fallback').mask("00r00r0000", {
             translation: {
                 'r': {

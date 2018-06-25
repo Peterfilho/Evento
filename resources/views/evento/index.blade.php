@@ -31,7 +31,6 @@
             </td>
             <td>
                 <a class="btn btn-primary btn-crud " href="{{ route('events.show',$evento['id']) }}">Exibir</a>
-                <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar</a>
                 <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal{{{$evento['id']}}}" href="TESTE">Deletar</a>
                 <div class="modal fade" id="exampleModal{{{$evento['id']}}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

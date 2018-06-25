@@ -46,7 +46,7 @@ class EventosController extends Controller
     {
 
         $data = $this->eventoService->find($id);
-        $data['status'] = false;
+        $request['status'] = false;
         $data = array_merge($data, $request->all());
         $evento = new Evento;
         $evento->fromArrayUpdate($data);
@@ -69,11 +69,12 @@ class EventosController extends Controller
             'site' => 'required',
             'description' => 'required',
             'event_hour' => 'required',
+            'profit_ticket' => 'required',
         ], $messages = [
             'required' => 'Campo obrigatório!',
         ]);
         $evento = new Evento;
-        $evento->status= true;
+        ($request ['status']  = true);
         $evento->fromArray($request->all());
         $evento = $this->eventoService->save($evento->toArray());
         //var_dump($event);
@@ -103,6 +104,7 @@ class EventosController extends Controller
     public function update(Request $request, $id)
     {
         $data = $this->eventoService->find($id);
+
         $data = array_merge($data, $request->all());
         $evento = new Evento;
         $evento->fromArrayUpdate($data);

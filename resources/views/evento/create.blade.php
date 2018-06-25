@@ -52,6 +52,15 @@
                 </span>
             @endif
         </div>
+        <div class="form-group {{ $errors->has('profit_ticket') ? ' has-error' : '' }}">
+            <label class="control-label" for="profit_ticket">Descrição: *</label>
+            <input id="profit_ticket" name="profit_ticket" class="form-control" autofocus>
+            @if ($errors->has('profit_ticket'))
+                <span class="help-block">
+                       <strong>{{ $errors->first('profit_ticket') }}</strong>
+                  </span>
+            @endif
+        </div>
 
         <a href="{{{route('events.index')}}}" class="btn btn-primary btn-crud ">Cancelar</a>
         <button class="btn btn-primary btn-crud ">Cadastrar Evento</button>

@@ -10,7 +10,7 @@ class Evento
     public $site;
     public $description;
     public $status;
-    public $eventocol; // ?
+    public $profit_ticket; // ?
 
 
     public function dateConvert($date){
@@ -31,7 +31,7 @@ class Evento
         $this->site = $data['site'] ?? null;
         $this->description = $data['description'] ?? null;
         $this->status = $data['status'] ?? null;
-        $this->eventocol = $data['eventocol'] ?? null;
+        $this->profit_ticket = $data['profit_ticket'] ?? null;
     }
 
     public function fromArrayUpdate(array $data)
@@ -44,7 +44,7 @@ class Evento
         $this->site = $data['site'] ?? null;
         $this->description = $data['description'] ?? null;
         $this->status = $data['status'] ?? null;
-        $this->eventocol = $data['eventocol'] ?? null;
+        $this->profit_ticket= $data['profit_ticket'] ?? null;
     }
 
     public function toArray()
@@ -57,7 +57,7 @@ class Evento
                 'site' => $this->site,
                 'description' => $this->description,
                 'status' => $this->status,
-                'eventocol' => $this->eventocol,
+                'profit_ticket' => $this->profit_ticket,
         ];
     }
 
