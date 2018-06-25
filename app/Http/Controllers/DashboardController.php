@@ -46,6 +46,6 @@ class DashboardController extends  Controller
                 $finalizados[$key] = $evento;
             }
         }
-        return view('dashboard.andamento', compact('finalizados'));
+        return view('dashboard.finalizado', compact('finalizados'));
     }
 }
