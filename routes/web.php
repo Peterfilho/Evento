@@ -1,9 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
 Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+Route::get('andamento', ['as' => 'andamento', 'uses' => 'DashboardController@andamento']);
+Route::get('finalizado', ['as' => 'finalizado', 'uses' => 'DashboardController@finalizado']);
+Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 Route::patch('events/{id}/finalizar',['as'=>'events.finalizar','uses'=>'EventosController@finalizar']);
 
 Route::resource('events', 'EventosController');
