@@ -12,14 +12,14 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Events')->truncate();
+        DB::table('events')->truncate();
 
         Evento::create([
-          'name' => 'required',
-          'event_date' => 'required',
-          'site' => 'required',
-          'description' => 'required',
-          'event_hour' => 'required'
+          'name' => 'Chitaozinho e Chororó - O Trote da Galopeira',
+          'event_date' => '2018-06-07',
+          'site' => 'confirmar milena',
+          'description' => 'Não há metaleiros quando se toca evidencias! Venha curtir esse show!',
+          'event_hour' => '21:00:00'
         ]);
 
     }

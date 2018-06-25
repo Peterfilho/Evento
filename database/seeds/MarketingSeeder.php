@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use app\Http\Controllers\MarketingController;
-
 class MarketingSeeder extends Seeder
 {
     /**
@@ -12,14 +10,11 @@ class MarketingSeeder extends Seeder
      */
     public function run()
     {
-
-      DB::table('marketing')->truncate();
-
-      Marketing::create([
-      'name' => 'required',
-      'description' => 'required',
-      'value' => 'required'
-      ]);
-
+        DB::table('events_marketings')->truncate();
+        Marketing::create([
+            'name' => 'Infra Estrutura Jhonadab Services',
+            'description' => 'infraesturura em geral do evento',
+            'value' => '30000'
+        ]);
     }
 }

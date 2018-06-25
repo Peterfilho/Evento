@@ -13,11 +13,11 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('Sponsor')->truncate();
+      DB::table('sponsors')->truncate();
 
       Patrocinador::create([
-        'name' => 'required',
-        'description' => 'required'
+        'name' => 'UTFPR',
+        'description' => 'os cursos estao patrocinando'
       ]);
     }
 }
