@@ -60,3 +60,10 @@ nav-tabs .nav-link {
     padding-top: 20px;
     float: right;
 }
+a h6 , a h1{
+    color: #fff;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
