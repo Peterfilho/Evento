@@ -66,9 +66,8 @@ class CaixaController extends Controller
 
         // salva no caixa
         $caixa = new Caixa;
-        $caixa_array = ['profit' => $profit, 'description' => 'Caixa do Evento',
-        'total_revenue' => $total_revenue ,'total_expenses' => $total_expenses,
-        'event_id' => $request->input('event_id')];
+        $caixa_array = ['profit' => $profit, 'total_revenue' => $total_revenue ,
+        'total_expenses' => $total_expenses,  'event_id' => $request->input('event_id')];
 
         $caixa->fromArray($caixa_array);
         $this->caixaService->save($caixa->toArray());

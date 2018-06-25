@@ -50,7 +50,7 @@ class MarketingEventoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
       $this->validate($request, [
           'value' => 'required',
       ], $messages = [
@@ -65,7 +65,7 @@ class MarketingEventoController extends Controller
 
         // descomentar quando estiver funcionado o cadastro
         /*$despesa = new Despesa;
-        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'marketing',
+        $despesa_array = ['expense_event_id' => $request->input('event_id'),
         'expense_type' => 'marketing','expense_value' => $request->input('value')];
         $despesa->fromArray($despesa_array);
         $despesa = $this->despesaService->save($despesa->toArray());*/

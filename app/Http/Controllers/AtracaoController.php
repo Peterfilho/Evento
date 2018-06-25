@@ -21,6 +21,7 @@ class AtracaoController  extends Controller
 
     protected $atracaoService;
     protected $eventoService;
+    protected $despesaService;
 
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
@@ -58,8 +59,8 @@ class AtracaoController  extends Controller
 
         // cadastra uma despesa do tipo atracao
         /*$despesa = new Despesa;
-        $despesa_array = ['expense_event_id' => $request->input('attraction_event_id'), 'description' => 'Atracao',
-        'expense_type' => 1,'expense_value' => $request->input('value')];
+        $despesa_array = ['expense_event_id' => $request->input('attraction_event_id'),
+        'expense_type' => 'Atracao','expense_value' => $request->input('value')];
         //dd($despesa_array);
         $despesa->fromArray($despesa_array);
         $despesa = $this->despesaService->save($despesa->toArray());*/
@@ -75,11 +76,11 @@ class AtracaoController  extends Controller
     public function update(Request $request, $id)
     {
       // atualiza a atracao
-      $data = $this->atracaoService->find($id);
+      /*$data = $this->atracaoService->find($id);
       $data = array_merge($data, $request->all());
       $atracao = new Atracao;
       $atracao->fromArray($data);
-      $this->atracaoService->update($id, $atracao->toArray());
+      $this->atracaoService->update($id, $atracao->toArray());*/
 
       // cadastra uma despesa do tipo atracao
       // descomentar depois que estiver atualizando certo
@@ -90,7 +91,7 @@ class AtracaoController  extends Controller
       $despesa = $this->despesaService->save($despesa->toArray());*/
 
       // retorna para o evento
-      return redirect('events/' . $atracao->event_id);
+    /*  return redirect('events/' . $atracao->event_id);*/
     }
 
     public function destroy($id)
