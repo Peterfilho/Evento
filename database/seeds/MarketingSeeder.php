@@ -13,12 +13,12 @@ class MarketingSeeder extends Seeder
     public function run()
     {
 
-      DB::table('Marketing')->truncate();
+      DB::table('events_marketings')->truncate();
 
       Marketing::create([
-      'name' => 'required',
-      'description' => 'required',
-      'value' => 'required'
+      'name' => 'Infra Estrutura Jhonadab Services',
+      'description' => 'infraesturura em geral do evento',
+      'value' => '30000'
       ]);
 
     }
