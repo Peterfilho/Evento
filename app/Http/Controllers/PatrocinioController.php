@@ -34,7 +34,7 @@ class PatrocinioController extends Controller
     {
         $patrocinios = $this->patrocinioService->findAll();
 
-        return view('Patrocinio.index', compact('patrocinios'));
+        return view('patrocinio.index', compact('patrocinios'));
     }
 
     /**
@@ -47,7 +47,7 @@ class PatrocinioController extends Controller
         $event_id = $id;
         $patrocinadores = $this->patrocinadorService->findAll();
 
-        return view('Patrocinio.create', compact('patrocinadores', 'event_id'));
+        return view('patrocinio.create', compact('patrocinadores', 'event_id'));
     }
 
     /**
@@ -72,7 +72,7 @@ class PatrocinioController extends Controller
         $receita->fromArray($receita_array);
         $receita = $this->receitaService->save($receita->toArray());*/
 
-        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinio  com sucesso!', 'success');
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> patrocinio  com sucesso!', 'success');
         return redirect('events/' . $patrocinio['event_id']); // mudar
     }
 
@@ -85,7 +85,7 @@ class PatrocinioController extends Controller
     public function show($id)
     {
         $patrocinio = $this->patrocinioService->find($id);
-        return view('Patrocinio.show', compact('patrocinio'));
+        return view('patrocinio.show', compact('patrocinio'));
 
     }
 
@@ -98,7 +98,7 @@ class PatrocinioController extends Controller
     public function edit($id)
     {
         $patrocinio = $this->patrocinioService->find($id);
-        return view('Patrocinio.edit', ['patrocinio' => $patrocinio]);
+        return view('patrocinio.edit', ['patrocinio' => $patrocinio]);
     }
 
     /**

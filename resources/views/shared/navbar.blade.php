@@ -6,11 +6,11 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#event" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">Eventos</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <ul class="sidenav-second-level collapse" id="event">
                     <li>
                         <a href="{{{route('events.create')}}}">
                             <i class="fa fa-fw fa-arrow-right"></i>
@@ -32,11 +32,11 @@
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-calendar"></i>
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#marketing" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw  fa-comments-o"></i>
                     <span class="nav-link-text">Marketing</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <ul class="sidenav-second-level collapse" id="marketing">
                     <li>
                         <a href="{{{route('marketings.create')}}}">
                             <i class="fa fa-fw fa-arrow-right"></i>
@@ -52,11 +52,11 @@
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#patrocinador" data-parent="#exampleAccordion">
                     <i class="fa fa-fw  fa-address-card"></i>
                     <span class="nav-link-text">Patrocinador</span>
                 </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <ul class="sidenav-second-level collapse" id="patrocinador">
                     <li>
                         <a href="{{{route('sponsors.create')}}}">
                             <i class="fa fa-fw fa-arrow-right"></i>
@@ -70,50 +70,6 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="{{ url("/newpatrocinador") }}">
-                    <i class="fa fa-fw fa-plus"></i>
-                    <span class="nav-link-text">Patrocinador</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="{{ url("/newmarketing") }}">
-                    <i class="fa fa-fw fa-plus"></i>
-                    <span class="nav-link-text">Marketing</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-usd"></i>
-                    <span class="nav-link-text">Caixa</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <li>
-                        <a>
-                            <i class="fa fa-fw fa-arrow-left"></i>
-                            <span class="nav-link-text">Despesa</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <i class="fa fa-fw fa-arrow-right"></i>
-                            <span class="nav-link-text">Receita</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <i class="fa fa-fw fa-calendar"></i>
-                            <span class="nav-link-text">Relatorio</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="{{ url("/events") }}">
-                    <i class="fa fa-fw fa-plus"></i>
-                    <span class="nav-link-text">Listar Evento</span>
-                </a>
             </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">

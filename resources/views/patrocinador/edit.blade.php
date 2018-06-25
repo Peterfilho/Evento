@@ -13,7 +13,8 @@
               <label class="control-label" for="data">Descrição: *</label>
               <input id="description" name="description" class="form-control" value="{{$patrocinador['description']}}" autofocus>
           </div>
-          <button class="btn btn-primary">Atualizar Marketing</button>
+          <a href="{{{route('sponsors.index')}}}" class="btn btn-primary btn-crud ">Cancelar</a>
+          <button class="btn btn-primary btn-crud">Atualizar Marketing</button>
     {!! Form::close() !!}
 
 @endsection

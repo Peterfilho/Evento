@@ -4,8 +4,11 @@ use Illuminate\Http\Request;
 use evento\Services\EventoService;
 use evento\Services\AtracaoService;
 use evento\Services\PatrocinadorService;
+use evento\Services\MarketingService;
+use evento\Services\MarketingEventoService;
 use evento\Services\PatrocinioService;
 use evento\Models\Evento;
+
 class EventosController extends Controller
 {
     protected $eventoService;

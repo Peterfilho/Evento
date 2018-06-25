@@ -4,7 +4,13 @@
 @section('content')
 
     <h1>Marketing {{{$marketing['id']}}} </h1>
-    <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{{route('dashboard')}}}"><i class="fa fa-fw  fa fa-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{{route('marketings.index')}}}"><i class="fa fa-fw  fa  fa-bars"></i> Todos os Marketings</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a class="active" href="{{ route('marketings.edit',$marketing['id']) }}"> <i class="fa fa-fw  fa  fa-calendar"></i> Marketing {{{$marketing['id']}}}</a></li>
+        </ol>
+    </nav>
 
     <div class="row row-show ">
         <div class="col-sm-8 col-lg-8 ">
@@ -38,8 +44,8 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-primary btn-crud " href="{{ route('marketings.edit',$marketing['id']) }}">Editar</a>
-    <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar</a>
+    <a class="btn btn-primary btn-crud " href="{{ route('marketings.edit',$marketing['id']) }}">Editar Marketing</a>
+    <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar Marketing</a>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

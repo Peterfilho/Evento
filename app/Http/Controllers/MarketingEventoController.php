@@ -50,6 +50,7 @@ class MarketingEventoController extends Controller
      */
     public function store(Request $request)
     {
+        
       $this->validate($request, [
           'value' => 'required',
       ], $messages = [
@@ -59,17 +60,18 @@ class MarketingEventoController extends Controller
         // cadastra um marketing para o evento
         $marketingEvento = new MarketingEvento;
         $marketingEvento->fromArray($request->all());
+
         $marketingEvento = $this->marketingEventoService->save($marketingEvento->toArray());
 
         // descomentar quando estiver funcionado o cadastro
         /*$despesa = new Despesa;
-        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'Marketing',
-        'expense_type' => 'Marketing','expense_value' => $request->input('value')];
+        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'marketing',
+        'expense_type' => 'marketing','expense_value' => $request->input('value')];
         $despesa->fromArray($despesa_array);
         $despesa = $this->despesaService->save($despesa->toArray());*/
 
         // retorna para o evento
-        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Marketing  com sucesso!', 'success');
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Marketing salvo com sucesso!', 'success');
         return redirect('events/' . $marketingEvento['event_id']);
     }
 
@@ -111,8 +113,8 @@ class MarketingEventoController extends Controller
 
         // descomentar quando estier funcionado a edicao
         /*$despesa = new Despesa;
-        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'Marketing',
-        'expense_type' => 'Marketing','expense_value' => $request->input('value')];
+        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'marketing',
+        'expense_type' => 'marketing','expense_value' => $request->input('value')];
         $despesa->fromArray($despesa_array);
         $despesa = $this->despesaService->save($despesa->toArray());*/
 

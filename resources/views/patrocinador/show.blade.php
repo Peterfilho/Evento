@@ -4,7 +4,13 @@
 @section('content')
 
     <h1>Patrocinador {{{$patrocinador['id']}}} </h1>
-    <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{{route('dashboard')}}}"><i class="fa fa-fw  fa fa-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{{route('sponsors.index')}}}"><i class="fa fa-fw  fa  fa-bars"></i> Todos os Patrocinadores</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a class="active" href="{{ route('sponsors.edit',$patrocinador['id']) }}"> <i class="fa fa-fw  fa  fa-calendar"></i> Patrocinador {{{$patrocinador['id']}}}</a></li>
+        </ol>
+    </nav>
 
     <div class="row row-show ">
         <div class="col-sm-8 col-lg-8 ">

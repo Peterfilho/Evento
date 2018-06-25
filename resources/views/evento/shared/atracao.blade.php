@@ -1,35 +1,9 @@
-<div class="tab-pane fade show active" id="atracao" role="tabpanel" aria-labelledby="atracao-tab">
+<div class="tab-pane fade show active" id="e_atracao" role="tabpanel" aria-labelledby="atracao-tab">
   <br>
   <br>
-  <div class="col-lg-6">
-      <div class="table-responsive">
-          <table class="table table-bordered table-hover table-striped">
-          <tr>
-            <th>Atração</th>
-            <th>Descrição</th>
-            <th>Evento</th>
-            <th>Ações</th>
-          </tr>
-          @foreach ($atracoes as $atracao)
-          <tr>
-            @if ($atracao['attraction_event_id']==$evento['id'])
-              <td>{{ $atracao['name'] }}</td>
-              <td>{{ $atracao['description'] }}</td>
-              <td>{{ $evento['name'] }}</td>
-              <td>
-                <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editAtracao" href="">Editar</a>
-                <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#deleteModal{{{$atracao['id']}}}" href="TESTE">Deletar</a>
-              </td>
-              @endif
-          </tr>
-          @endforeach
-        </table>
-    </div>
-  </div>
     <div class="right">
         <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createAtracao" href="">Adicionar Atracao</a>
     </div>
-
     <div class="modal fade" id="createAtracao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

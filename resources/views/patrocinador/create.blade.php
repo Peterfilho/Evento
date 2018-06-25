@@ -22,7 +22,8 @@
               </span>
           @endif
       </div>
-      <button class="btn btn-primary">Cadastrar</a>
+     <a href="{{{route('sponsors.index')}}}" class="btn btn-primary btn-crud ">Cancelar</a>
+     <button class="btn btn-primary btn-crud">Cadastrar</button>
   {!! Form::close() !!}
 
 

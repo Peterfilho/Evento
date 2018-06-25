@@ -18,34 +18,19 @@ class PatrocinadoresController extends Controller
         $this->patrocinadorService = $patrocinadorService;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $patrocinadores = $this->patrocinadorService->findAll();
 
-        return view('Patrocinador.index', compact('patrocinadores'));
+        return view('patrocinador.index', compact('patrocinadores'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('Patrocinador.create', compact('patrocinador'));
+        return view('patrocinador.create', compact('patrocinador'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -59,41 +44,24 @@ class PatrocinadoresController extends Controller
         $patrocinador->fromArray($request->all());
         $patrocinador = $this->patrocinadorService->save($patrocinador->toArray());
 
-        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinador  com sucesso!', 'success');
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinador salvo com sucesso!', 'success');
         return redirect('sponsors');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $patrocinador = $this->patrocinadorService->find($id);
-        return view('Patrocinador.show', compact('patrocinador'));
+        return view('patrocinador.show', compact('patrocinador'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $patrocinador = $this->patrocinadorService->find($id);
-        return view('Patrocinador.edit', ['patrocinador' => $patrocinador]);
+        return view('patrocinador.edit', ['patrocinador' => $patrocinador]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $data = $this->patrocinadorService->find($id);
@@ -101,18 +69,17 @@ class PatrocinadoresController extends Controller
         $patrocinador = new Patrocinador;
         $patrocinador->fromArray($data);
         $this->patrocinadorService->update($id, $patrocinador->toArray());
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinador atualizado com sucesso!', 'success');
         return redirect('/sponsors');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $patrocinadors = $this->patrocinadorService->delete($id);
+       // $patrocinador = $this->patrocinadorService->delete($id);
+        ($patrocinador = $this->patrocinadorService->delete($id));
+        flash('<i class="fa fa-check-square-o" aria-hidden="true"></i> Patrocinador deletado com sucesso!', 'success');
         return redirect('/sponsors');
+
+
     }
 }

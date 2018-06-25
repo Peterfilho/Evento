@@ -1,37 +1,44 @@
-<div class="tab-pane fade show " id="marketing" role="tabpanel" aria-labelledby="marketing-tab">
-  <br>
-  <br>
-  <div class="col-lg-6">
-      <div class="table-responsive">
-          <table class="table table-bordered table-hover table-striped">
-          <tr>
-            <th>Marketing</th>
-            <th>Valor</th>
-            <th>Evento</th>
-            <th>Ações</th>
-          </tr>
-          @foreach ($marketingsEvento as $m)
-          <tr>
-            @if ($m['event_id']==$evento['id'])
-              @foreach ($marketings as $marketing)
-                @if ($m['marketing_id']==$marketing['id'])
-                  <td>{{ $marketing['name'] }}</td>
-                @endif
-              @endforeach
-              <td>{{ $m['value'] }}</td>
-              <td>{{ $evento['name'] }}</td>
-              <td>
-                <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
-              </td>
-            @endif
-          </tr>
-          @endforeach
-        </table>
-    </div>
-  </div>
+<div class="tab-pane fade show " id="e_marketing" role="tabpanel" aria-labelledby="marketing-tab">
+
     <div class="right">
-        <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createPatrocinador" href="">Adicionar Marketing</a>
+        <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createMarketing" href="">Adicionar Marketing</a>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    @if($marketings===[])
+    @else
+        <div class="col-lg-6">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+                        <th>Marketing</th>
+                        <th>Valor</th>
+                        <th>Evento</th>
+                        <th>Ações</th>
+                    </tr>
+                    @foreach ($marketingsEvento as $m)
+                        <tr>
+                            @if ($m['event_id']==$evento['id'])
+                                @foreach ($marketings as $marketing)
+                                    @if ($m['marketing_id']==$marketing['id'])
+                                        <td>{{ $marketing['name'] }}</td>
+                                    @endif
+                                @endforeach
+                                <td>{{ $m['value'] }}</td>
+                                <td>{{ $evento['name'] }}</td>
+                                <td>
+                                    <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
+                                </td>
+                            @endif
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    @endif
 
     <div class="modal fade" id="createMarketing" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

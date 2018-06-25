@@ -13,11 +13,8 @@
               <label class="control-label" for="data">Descrição: *</label>
               <input id="description" name="description" class="form-control" value="{{$marketing['description']}}" autofocus>
           </div>
-          <div class="form-group">
-              <label class="control-label" for="horario">Valor: *</label>
-              <input id="value" name="value" class="form-control" value="{{$marketing['value']}}" autofocus>
-          </div>
-          <button class="btn btn-primary">Atualizar Marketing</button>
+          <a href="{{{route('marketings.index')}}}" class="btn btn-primary btn-crud ">Cancelar</a>
+          <button class="btn btn-primary btn-crud">Atualizar Marketing</button>
     {!! Form::close() !!}
 
 @endsection

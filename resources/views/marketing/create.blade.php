@@ -22,16 +22,8 @@
               </span>
           @endif
       </div>
-      <div class="form-group {{ $errors->has('value') ? ' has-error' : '' }}">
-          <label class="control-label" for="value">Valor: *</label>
-          <input id="value" name="value" class="form-control" autofocus>
-          @if ($errors->has('value'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('value') }}</strong>
-              </span>
-          @endif
-      </div>
-      <button class="btn btn-primary">Cadastrar</a>
+  <a href="{{{route('marketings.index')}}}" class="btn btn-primary btn-crud ">Cancelar</a>
+  <button class="btn btn-primary btn-crud ">Cadastrar Marketing</button>
   {!! Form::close() !!}
 
 

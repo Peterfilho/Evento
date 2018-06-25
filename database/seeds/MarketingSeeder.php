@@ -13,7 +13,7 @@ class MarketingSeeder extends Seeder
     public function run()
     {
 
-      DB::table('Marketing')->truncate();
+      DB::table('marketing')->truncate();
 
       Marketing::create([
       'name' => 'required',
