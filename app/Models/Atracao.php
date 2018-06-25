@@ -12,17 +12,23 @@ namespace evento\Models;
 class Atracao
 
 {
-    protected $fillable = ['name', 'description'];
+  //  protected $fillable = ['name', 'description', 'value'];
 
 
-    public function event()
+    /*public function event()
     {
         return $this->belongsTo('App\Model\Evento');
-    }
+    }*/
 
-    public $name;
+    /*public $name;
     public $description;
     public $attraction_event_id;
+    public $value;*/
+    protected $name;
+    protected $description;
+    protected $value;
+    protected $attraction_event_id;
+
 
     public function fromArray(array $data)
     {
@@ -30,6 +36,7 @@ class Atracao
         $this->name  = $data['name'] ?? null;
         $this->description = $data['description'] ?? null;
         $this->attraction_event_id = $data['attraction_event_id'] ?? null;
+        $this->value = $data['value'] ?? null;
 
     }
     public function toArray()
@@ -39,6 +46,7 @@ class Atracao
             'name'  => $this->name,
             'description' => $this->description,
             'attraction_event_id' => $this->attraction_event_id,
+            'value' => $this->value,
         ];
     }
 

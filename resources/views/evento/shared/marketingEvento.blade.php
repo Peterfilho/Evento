@@ -17,7 +17,6 @@
                         <th>Marketing</th>
                         <th>Valor</th>
                         <th>Evento</th>
-                        <th>Ações</th>
                     </tr>
                     @foreach ($marketingsEvento as $m)
                         <tr>
@@ -29,9 +28,6 @@
                                 @endforeach
                                 <td>{{ $m['value'] }}</td>
                                 <td>{{ $evento['name'] }}</td>
-                                <td>
-                                    <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
-                                </td>
                             @endif
                         </tr>
                     @endforeach
@@ -79,50 +75,4 @@
             </div>
         </div>
     </div>
-
-    <!-------------------------------------------------------------------------------->
-
-    <div class="modal fade" id="editPatrocinador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Patrocinio</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                {!! Form::open(array('route' => array('sponsorships.update', $m['id']), 'method' => 'patch')) !!}
-                <div class="modal-body">
-
-                        <div class="form-group">
-                            <select class="form-control" name="marketing_id">
-                              @foreach ($marketings as $marketing)
-                                  @if ($m['marketing_id']==$marketing['id'])
-                                    <option value="{{$m['marketing_id']}}">{{$marketing['name']}}</option>
-                                  @endif
-                              @endforeach
-
-                                @foreach ($marketings as $marketing)
-                                  @if ($m['marketing_id']<>$marketing['id'])
-                                    <option value="{{$marketing['id']}}">{{$marketing['name']}}</option>
-                                  @endif
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="nome">Valor: *</label>
-                            <input id="value" name="value" class="form-control" value="{{$m['value']}}" autofocus>
-                        </div>
-                        <input type="hidden" name="event_id" value="{{$evento['id']}}">
-
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary"  type="button" href="{{ route('events.show',$evento['id']) }}" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary">Editar</button>
-                </div>
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-
 </div>

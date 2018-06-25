@@ -67,13 +67,14 @@ class EventosController extends Controller
     public function show($id)
     {
         $evento = $this->eventoService->find($id);
-        $patrocinios = $this->patrocinioService->findAll();
         $patrocinadores = $this->patrocinadorService->findAll();
-        $atracoes = $this->atracaoService->findAll();
+        $patrocinios = $this->patrocinioService->findAll();
         $marketings = $this->marketingService->findAll();
         $marketingsEvento = $this->marketingEventoService->findAll();
+        $atracoes = $this->atracaoService->findAll();
         //dd($patrocinios);
-        return view('evento.show', compact('evento', 'patrocinios', 'patrocinadores', 'atracoes', 'marketings', 'marketingsEvento'));
+        return view('evento.show', compact('evento', 'patrocinios',
+         'patrocinadores', 'atracoes', 'marketings', 'marketingsEvento'));
     }
 
     public function edit($id)
@@ -93,6 +94,7 @@ class EventosController extends Controller
     }
     public function destroy($id)
     {
+        
         $eventos = $this->eventoService->delete($id);
         return redirect('/events');
     }

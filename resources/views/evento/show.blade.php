@@ -33,7 +33,7 @@
 
     </ul>
     <div class="tab-content" id="myTabContent">
-        {{--@include('evento.shared.atracao')--}}
+        @include('evento.shared.atracao')
         @include('evento.shared.patrocinio')
         @include('evento.shared.marketingEvento')
     </div>

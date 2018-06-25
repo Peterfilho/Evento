@@ -11,7 +11,9 @@ namespace evento\Http\Controllers;
 use Illuminate\Http\Request;
 use evento\Services\AtracaoService;
 use evento\Services\EventoService;
+use evento\Services\DespesaService;
 use evento\Models\Atracao;
+use evento\Models\Despesa;
 
 
 class AtracaoController  extends Controller
@@ -23,16 +25,16 @@ class AtracaoController  extends Controller
     // cria uma nova instancia de Evento
     // e os metodos estão disponiveis para o controlador
 
-    public function __construct(AtracaoService $atracaoService, EventoService $eventoService)
+    public function __construct(AtracaoService $atracaoService, EventoService $eventoService, DespesaService $despesaService)
     {
         $this->atracaoService = $atracaoService;
         $this->eventoService = $eventoService;
+        $this->despesaService = $despesaService;
     }
 
     public function index()
     {
         $atracoes = $this->atracaoService->findAll();
-        //dd($atracoes);
         return view('Atracao.index', compact('atracoes'));
     }
 
@@ -55,20 +57,19 @@ class AtracaoController  extends Controller
         $atracao = $this->atracaoService->save($atracao->toArray());
 
         // cadastra uma despesa do tipo atracao
-        $despesa = new Despesa;
-        $despesa_array = ['expense_event_id' => $request->input('event_id'), 'description' => 'Atracao',
-        'expense_type' => 'Atracao','expense_value' => $request->input('value')];
+        /*$despesa = new Despesa;
+        $despesa_array = ['expense_event_id' => $request->input('attraction_event_id'), 'description' => 'Atracao',
+        'expense_type' => 1,'expense_value' => $request->input('value')];
+        //dd($despesa_array);
         $despesa->fromArray($despesa_array);
-        $despesa = $this->despesaService->save($despesa->toArray());
+        $despesa = $this->despesaService->save($despesa->toArray());*/
 
         // retorna para o evento
         return redirect('events/' . $atracao['attraction_event_id']);
     }
 
     public function edit($id)
-    {
-
-    }
+    {}
 
 
     public function update(Request $request, $id)

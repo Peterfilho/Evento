@@ -46,6 +46,7 @@ abstract class AbstractService
     public function find($id)
     {
         $options = $this->defaultOptions();
+        //$response = $this->httpClient->get($this->databaseApiUrl("/{$this->resource}/{$id}"), $options);
         try {
             $response = $this->httpClient->get($this->databaseApiUrl("/{$this->resource}/{$id}"), $options);
         } catch (ClientException $e) {
@@ -56,11 +57,12 @@ abstract class AbstractService
     public function findAll()
     {
         $options = $this->defaultOptions();
-        try {
+        $response = $this->httpClient->get($this->databaseApiUrl("/{$this->resource}"), $options);
+        /*try {
             $response = $this->httpClient->get($this->databaseApiUrl("/{$this->resource}"), $options);
         } catch (ClientException $e) {
             $this->handleGuzzleException($e);
-        }
+        }*/
         return $this->parseResponseToJson($response);
     }
 
@@ -73,14 +75,14 @@ abstract class AbstractService
 
         $options = array_merge_recursive($options, $body);
 
-        //$response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
-        try {
+        $response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
+        /*try {
 
             $response = $this->httpClient->post($this->databaseApiUrl("/{$this->resource}"), $options);
 
         } catch (ClientException $e) {
             $this->handleGuzzleException($e);
-        }
+        }*/
         return $this->parseResponseToJson($response);
     }
 
@@ -99,11 +101,12 @@ abstract class AbstractService
     public function delete(int $id)
     {
         $options = $this->defaultOptions();
-        try {
+        $response = $this->httpClient->delete($this->databaseApiUrl("/{$this->resource}/{$id}"), $options);
+        /*try {
             $response = $this->httpClient->delete($this->databaseApiUrl("/{$this->resource}/{$id}"), $options);
         } catch (ClientException $e) {
             $this->handleGuzzleException($e);
-        }
+        }*/
         return $this->parseResponseToJson($response);
     }
 
