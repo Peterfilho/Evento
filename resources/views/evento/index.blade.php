@@ -12,7 +12,7 @@
             <th>Local</th>
             <th>Data</th>
             <th>Horário</th>
-            <th>Descrição</th>
+            <th>Status</th>
             <th>Ações</th>
           </tr>
           @foreach ($eventos as $evento)
@@ -22,7 +22,13 @@
             <td>{{ $evento['site'] }}</td>
             <td>{{ date('d/m/Y', strtotime($evento['event_date'])) }}</td>
             <td>{{ date('g:i', strtotime($evento['event_hour'])) }}</td>
-            <td>{{ $evento['description'] }}</td>
+            <td>
+                @if($evento['status'] ===1)
+                    ANDAMENTO
+                @else
+                    FINALIZADO
+                @endif
+            </td>
             <td>
                 <a class="btn btn-primary btn-crud " href="{{ route('events.show',$evento['id']) }}">Exibir</a>
                 <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar</a>

@@ -13,9 +13,15 @@
     </nav>
 
     @include('evento.shared.basic')
+    @if($evento['status'] ===1)
+        <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar Evento</a>
+        <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar Evento</a>
+        {!! Form::open(array('route' => array('events.finalizar', $evento['id']),  'method' => 'patch')) !!}
+        <button  class="btn btn-primary btn-crud">Finalizar Evento</button>
+        {!! Form::close() !!}
 
-    <a class="btn btn-primary btn-crud " href="{{ route('events.edit',$evento['id']) }}">Editar Evento</a>
-    <a class="btn btn-danger btn-crud " data-toggle="modal" data-target="#exampleModal" href="">Deletar Evento</a>
+    @else
+    @endif
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
