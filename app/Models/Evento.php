@@ -24,7 +24,6 @@ class Evento
 
     public function fromArray(array $data)
     {
-
         //$this->id    = $data['id'] ?? null;
         $this->name  = $data['name'] ?? null;
         $this->event_date = $this->dateConvert($data['event_date']) ?? null;
@@ -57,7 +56,7 @@ class Evento
                 'event_hour' => $this->event_hour,
                 'site' => $this->site,
                 'description' => $this->description,
-                'status' => true,
+                'status' => $this->status,
                 'eventocol' => $this->eventocol,
         ];
     }

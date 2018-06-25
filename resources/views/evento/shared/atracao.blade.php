@@ -1,9 +1,16 @@
 <div class="tab-pane fade show active" id="e_atracao" role="tabpanel" aria-labelledby="atracao-tab">
   <br>
   <br>
-    <div class="right">
-        <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createAtracao" href="">Adicionar Atracao</a>
-    </div>
+    @if($evento['status'] ===1)
+        <div class="right">
+            <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createAtracao" href="">Adicionar Atracao</a>
+        </div>
+        <br><br><br><br>
+    @else
+        <br>
+        <br>
+    @endif
+
     <div class="modal fade" id="createAtracao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

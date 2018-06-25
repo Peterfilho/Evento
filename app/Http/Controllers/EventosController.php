@@ -41,10 +41,26 @@ class EventosController extends Controller
         //  exit;
         return view('evento.index', compact('eventos'));
     }
+
+    public function finalizar(Request $request, $id)
+    {
+
+        $data = $this->eventoService->find($id);
+        $data['status'] = false;
+        $data = array_merge($data, $request->all());
+        $evento = new Evento;
+        $evento->fromArrayUpdate($data);
+        $this->eventoService->update($id, $evento->toArray());
+
+        flash("<i class='fa fa-check-square-o' aria-hidden='true'></i> Evento  finalizado sucesso!", 'success');
+        return redirect('events');
+    }
+
     public function create()
     {
         return view('evento.create', compact('evento'));
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -57,6 +73,7 @@ class EventosController extends Controller
             'required' => 'Campo obrigatório!',
         ]);
         $evento = new Evento;
+        $evento->status= true;
         $evento->fromArray($request->all());
         $evento = $this->eventoService->save($evento->toArray());
         //var_dump($event);

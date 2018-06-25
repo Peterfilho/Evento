@@ -1,12 +1,15 @@
 <div class="tab-pane fade show " id="e_marketing" role="tabpanel" aria-labelledby="marketing-tab">
 
-    <div class="right">
-        <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createMarketing" href="">Adicionar Marketing</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
+    @if($evento['status'] ===1)
+        <div class="right">
+            <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createMarketing" href="">Adicionar Marketing</a>
+        </div>
+        <br><br><br><br>
+    @else
+        <br>
+        <br>
+    @endif
+
 
     @if($marketings===[])
     @else
@@ -17,7 +20,6 @@
                         <th>Marketing</th>
                         <th>Valor</th>
                         <th>Evento</th>
-                        <th>Ações</th>
                     </tr>
                     @foreach ($marketingsEvento as $m)
                         <tr>
@@ -29,9 +31,6 @@
                                 @endforeach
                                 <td>{{ $m['value'] }}</td>
                                 <td>{{ $evento['name'] }}</td>
-                                <td>
-                                    <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
-                                </td>
                             @endif
                         </tr>
                     @endforeach

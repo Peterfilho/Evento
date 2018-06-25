@@ -1,13 +1,18 @@
 <div class="tab-pane fade show " id="e_patrocinador" role="tabpanel" aria-labelledby="patrocinador-tab">
 
+    @if($evento['status'] ===1)
+        <div class="right">
+            <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createPatrocinador" href="">Adicionar Patrocinador</a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    @else
+        <br>
+        <br>
+    @endif
 
-    <div class="right">
-        <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#createPatrocinador" href="">Adicionar Patrocinador</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
 
     @if($patrocinadores===[])
     @else
@@ -30,9 +35,6 @@
                             @endforeach
                             <td>{{ $patrocinio['value'] }}</td>
                             <td>{{ $evento['name'] }}</td>
-                            <td>
-                                <a class="btn btn-primary btn-crud " data-toggle="modal" data-target="#editPatrocinador" href="">Editar Patrocinador</a>
-                            </td>
                         @endif
                     </tr>
                 @endforeach
